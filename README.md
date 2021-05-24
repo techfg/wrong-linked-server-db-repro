@@ -58,7 +58,7 @@ GO
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' sql_db_host
 ```
 10. Connect to `SQL_DB_CLIENT` (localhost, 1434)
-11. Create Linked Server on `SQL_DB_CLIENT` to `SQL_DB_HOST` replacing `<SQL_DB_HOST_IP_ADDRESS>` with the IP address obtained in Step #10
+11. Create Linked Server on `SQL_DB_CLIENT` to `SQL_DB_HOST` replacing `<SQL_DB_HOST_IP_ADDRESS>` with the IP address obtained in Step #9
 ```sql
 USE [master]
 GO
