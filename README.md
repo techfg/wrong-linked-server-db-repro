@@ -1,5 +1,7 @@
 # Database in the middle of a restore Repro
 
+ℹ️ This issue occurs when running inside or outside of docker, in Azure and outside of Azure and when one instance of SQL Server is outside of Azure and another inside of Azure.  The repro below uses Docker in order to simplify steps to reproduce but Docker is not required to reproduce the issue.
+
 In the situation where an existing database has been dropped and a restored database renamed to the name of the previsouly existing database, if another database is created and in the "restoring" state, linked server queries fail to execute encountering the error "Database `<nameofrestoringdatabase>` cannot be opened.  It is in the middle of a restore.", however the query is targeting the database that is NOT in the middle of a restore.
 
 For example, the following query is targeting the database `Northwind_live` but the error message indicates `Northwind_next_inprogress`:
